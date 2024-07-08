@@ -1,0 +1,204 @@
+<!doctype html> <!-- Defines the document type and version -->
+<html>
+<head>
+    <style>
+        /* Styles for the body element */
+        body {
+            background-color: rgba(0, 0, 0, 0.225); /* Sets the background color with some transparency */
+            background-image: url("C:/Users/kavur/Desktop/bw.jpg"); /* Sets the background image */
+            background-size: cover;  /* Ensures the background image covers the entire element */
+            background-position: center;  /* Centers the background image */
+            background-repeat: no-repeat;  /* Prevents the background image from repeating */
+        }
+
+        /* Styles for buttons with the "clear" class */
+        button.clear {
+            background: #ed890e; /* Sets the background color */
+            color: #fff; /* Sets the text color */
+        }
+
+        /* Styles for the table element */
+        table {
+            background: #e2d8d0; /* Sets the background color */
+            padding: 7px 5px; /* Sets the padding */
+            border: 6px solid rgba(6, 6, 6, 0.285); /* Sets the border color and transparency */
+            text-align: center; /* Centers the text */
+            padding-bottom: 0px; /* Sets the bottom padding */
+            box-shadow: 0px 0px 27px black; /* Adds a shadow effect */
+            border-radius: 10px; /* Rounds the corners */
+            margin-top: 90px; /* Sets the top margin */
+        }
+
+        /* Styles for buttons with the "equal" class */
+        button.equal {
+            width: 88%; /* Sets the width */
+            background: black; /* Sets the background color */
+        }
+
+        /* Hover effect for buttons with the "equal" class */
+        button.equal:hover {
+            background: rgb(86, 65, 39); /* Changes the background color on hover */
+        }
+
+        /* Styles for input elements of type "text" */
+        input[type="text"] {
+            width: 450px; /* Sets the width */
+            height: 81px; /* Sets the height */
+            border: 1px solid #000; /* Sets the border color */
+            padding: 10px 20px; /* Sets the padding */
+            font-size: 29px; /* Sets the font size */
+            background: #000000; /* Sets the background color */
+            font-weight: bold; /* Sets the font weight */
+            margin-bottom: 25px; /* Sets the bottom margin */
+            font-family: cursive; /* Sets the font family */
+            margin-top: 10px; /* Sets the top margin */
+            color: #dedede; /* Sets the text color */
+            border-bottom: 2px solid #000000; /* Sets the bottom border */
+        }
+
+        /* Styles for all button elements */
+        button {
+            padding: 10px 20px; /* Sets the padding */
+            width: 100px; /* Sets the width */
+            height: 60px; /* Sets the height */
+            margin-bottom: 20px; /* Sets the bottom margin */
+            font-size: 26px; /* Sets the font size */
+            font-weight: bold; /* Sets the font weight */
+            font-family: cursive; /* Sets the font family */
+            background: #000803; /* Sets the background color */
+            border: none; /* Removes the border */
+            color: #ed890e; /* Sets the text color */
+            border-radius: 6px; /* Rounds the corners */
+            cursor: pointer; /* Changes the cursor to a pointer on hover */
+        }
+
+        /* Hover effect for all button elements */
+        button:hover {
+            background: rgb(86, 65, 39); /* Changes the background color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <form name="calcul"> <!-- Form for the calculator -->
+        <table align="center"> <!-- Center aligns the table -->
+
+            <tr> <!-- Table row for the display -->
+                <td colspan="4"> <!-- Single cell spanning 4 columns -->
+                    <input type="text" name="result" placeholder="0" style="text-align:right"> <!-- Display input -->
+                </td>
+            </tr>
+
+            <tr> <!-- Table row for function buttons -->
+                <td><button type="button" value="sin" onclick="sin()"> sin </button> </td> <!-- Sine function button -->
+                <td><button type="button" value="cos" onclick="cos()"> cos</button> </td> <!-- Cosine function button -->
+                <td><button type="button" value="tan" onclick="tan()"> tan </button> </td> <!-- Tangent function button -->
+                <td colspan="2">
+                    <button type="button" value="C" class="clear" onclick="remv()"> AC </button> <!-- Clear button -->
+                </td>
+            </tr>
+
+            <tr> <!-- Table row for power and root buttons -->
+                <td><button type="button" value="x^2" onclick="square()"> x<sup>2 </button> </td> <!-- Square function button -->
+                <td><button type="button" value="x^3" onclick="cubed()"> x<sup>3 </button> </td> <!-- Cube function button -->
+                <td><button type="button" value="sqrt2" onclick="sqrt2()"> &radic; </button> </td> <!-- Square root button -->
+                <td><button type="button" value="sqrt3" onclick="sqrt3()"> &#8731; </button> </td> <!-- Cube root button -->
+            </tr>
+
+            <tr> <!-- Table row for number buttons -->
+                <td><button type="button" value="1" onclick="number(value)"> 1 </button> </td> <!-- Number 1 button -->
+                <td><button type="button" value="2" onclick="number(value)"> 2 </button> </td> <!-- Number 2 button -->
+                <td><button type="button" value="3" onclick="number(value)"> 3 </button> </td> <!-- Number 3 button -->
+                <td><button type="button" value="BACKSPC" class="clear" onclick="BACKSPC()"> DEL </button> </td> <!-- Delete button -->
+            </tr>
+
+            <tr> <!-- Table row for number buttons -->
+                <td><button type="button" value="4" onclick="number(value)"> 4</button> </td> <!-- Number 4 button -->
+                <td><button type="button" value="5" onclick="number(value)"> 5 </button> </td> <!-- Number 5 button -->
+                <td><button type="button" value="6" onclick="number(value)"> 6 </button> </td> <!-- Number 6 button -->
+                <td><button type="button" value="-" onclick="number(value)"> - </button> </td> <!-- Subtract button -->
+            </tr>
+
+            <tr> <!-- Table row for number buttons -->
+                <td><button type="button" value="7" onclick="number(value)"> 7 </button> </td> <!-- Number 7 button -->
+                <td><button type="button" value="8" onclick="number(value)"> 8 </button> </td> <!-- Number 8 button -->
+                <td><button type="button" value="9" onclick="number(value)"> 9 </button> </td> <!-- Number 9 button -->
+                <td><button type="button" value="/" onclick="number(value)"> / </button> </td> <!-- Divide button -->
+            </tr>
+
+            <tr> <!-- Table row for special character and operator buttons -->
+                <td><button type="button" value="." onclick="number(value)"> . </button> </td> <!-- Decimal point button -->
+                <td><button type="button" value="0" onclick="number(value)"> 0 </button> </td> <!-- Number 0 button -->
+                <td><button type="button" value="*" onclick="number(value)"> * </button> </td> <!-- Multiply button -->
+                <td><button type="button" value="%" onclick="number(value)"> % </button> </td> <!-- Modulo button -->
+            </tr>
+
+            <tr> <!-- Table row for equal and add buttons -->
+                <td colspan="2"> <!-- Single cell spanning 2 columns -->
+                    <button type="button" value="=" onclick="equal()" class="equal">=</button> <!-- Equal button -->
+                </td>
+                <td><button type="button" value="+" onclick="number(value)"> + </button> </td> <!-- Add button -->
+            </tr>
+
+        </table>
+    </form>
+
+    <script>
+        /* Function to calculate sine */
+        function sin() {
+            document.calcul.result.value = Math.sin(document.calcul.result.value);
+        }
+
+        /* Function to calculate cosine */
+        function cos() {
+            document.calcul.result.value = Math.cos(document.calcul.result.value);
+        }
+
+        /* Function to calculate tangent */
+        function tan() {
+            document.calcul.result.value = Math.tan(document.calcul.result.value);
+        }
+
+        /* Function to remove the last character */
+        function BACKSPC() {
+            var a = document.calcul.result.value;
+            document.calcul.result.value = a.substr(0, a.length - 1);
+        }
+
+        /* Function to calculate square */
+        function square() {
+            document.calcul.result.value = Math.pow(document.calcul.result.value, 2);
+        }
+
+        /* Function to calculate cube */
+        function cubed() {
+            document.calcul.result.value = Math.pow(document.calcul.result.value, 3);
+        }
+
+        /* Function to calculate square root */
+        function sqrt2() {
+            document.calcul.result.value = Math.pow(document.calcul.result.value, 1 / 2);
+        }
+
+        /* Function to calculate cube root */
+        function sqrt3() {
+            document.calcul.result.value = Math.pow(document.calcul.result.value, 1 / 3);
+        }
+
+        /* Function to append a number to the display */
+        function number(value) {
+            document.calcul.result.value += value;
+        }
+
+        /* Function to clear the display */
+        function remv() {
+            document.calcul.result.value = " ";
+        }
+
+        /* Function to evaluate the expression */
+        function equal() {
+            document.calcul.result.value = eval(document.calcul.result.value);
+        }
+    </script>
+</body>
+</html>
